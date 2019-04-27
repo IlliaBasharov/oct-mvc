@@ -1,22 +1,22 @@
-document.getElementById('courses').onclick = function () {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
-    xhr.onreadystatechange = function () {
-	if (xhr.readyState === 4) {
-	    if (xhr.status === 200) {
-		var json_text = xhr.responseText;
-		var courses = JSON.parse(json_text);
-		console.log(courses);
-		for (var i = 0; i < courses.length; i++) {
-		    alert(courses[i].ccy);//TODO выводи как хочешь
-		}
-	    }
-	}
-    };
-    xhr.send();
-};
+//document.getElementById('courses').onclick = function () {
+//    var xhr = new XMLHttpRequest();
+//    xhr.open('GET', 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
+//    xhr.onreadystatechange = function () {
+//	if (xhr.readyState === 4) {
+//	    if (xhr.status === 200) {
+//		var json_text = xhr.responseText;
+//		var courses = JSON.parse(json_text);
+//		console.log(courses);
+//		for (var i = 0; i < courses.length; i++) {
+//		    alert(courses[i].ccy);//TODO выводи как хочешь
+//		}
+//	    }
+//	}
+//    };
+//    xhr.send();
+//};
 
-document.getElementById('questions-btn').onclick = function () {
+function showQuestions() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/api/questions');
     xhr.onreadystatechange = function () {
@@ -41,4 +41,5 @@ document.getElementById('questions-btn').onclick = function () {
     };
     xhr.send();
 };
+showQuestions();
 
