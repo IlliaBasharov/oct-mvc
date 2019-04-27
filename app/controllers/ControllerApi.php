@@ -17,10 +17,21 @@ class ControllerApi extends Controller {
     }
 
     public function action_questions() {
-	$questions = $this->model->all();//return all questions
+	$questions = $this->model->all(); //return all questions
 	$json_text = json_encode($questions);
 	header("Content-type: application/json;");
 	echo $json_text;
+    }
+
+    public function action_addquestion() {
+	//TODO в идеале нужно валидировать входящие данные
+	$question = filter_input_array(INPUT_POST);
+	$this->model->add($question);
+    }
+
+    public function action_deletequestion() {
+	$id = filter_input(INPUT_POST, 'id');
+	$this->model->delete($id);
     }
 
 }
