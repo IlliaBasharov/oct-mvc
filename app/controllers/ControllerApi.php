@@ -33,5 +33,9 @@ class ControllerApi extends Controller {
 	$id = filter_input(INPUT_POST, 'id');
 	$this->model->delete($id);
     }
+    
+    public function action_addphoto() {
+	var_dump($_FILES);
+    }
 
 }
